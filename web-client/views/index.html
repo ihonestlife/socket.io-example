@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Client</title>
+    <script src="socket.io.js"></script>
+</head>
+<body>
+    <h1>console</h1>
+    <hr>
+    <div id="console">
+    </div>
+<script>
+    var socket = io("ws://172.16.101.123:7009");
+    socket.on('move car', function (data) {
+        var time = new Date();
+        var log = '<div>'+time+' from server : '+data+'</div>';
+        document.getElementById("console").innerHTML += log;
+    });
+</script>
+</body>
+</html>
